@@ -34,7 +34,7 @@ public class BloodEagleController: MonoBehaviour
 	{
 
 		if (Input.GetMouseButtonDown (0)) {	
-			instantiatedCutter = (GameObject)Instantiate (cutterPattern, Camera.main.ScreenToWorldPoint (Input.mousePosition), cutterPattern.transform.rotation);
+			instantiatedCutter = (GameObject)Instantiate (cutterPattern, new Vector3(Camera.main.ScreenToWorldPoint (Input.mousePosition).x,Camera.main.ScreenToWorldPoint (Input.mousePosition).y,0), cutterPattern.transform.rotation);
 		}
 
 		if (Input.GetMouseButtonUp (0)) {
@@ -49,7 +49,7 @@ public class BloodEagleController: MonoBehaviour
 				}
 		}
 		if (Input.GetMouseButton (0) && instantiatedCutter) {
-			instantiatedCutter.transform.position = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+			instantiatedCutter.transform.position = new Vector3(Camera.main.ScreenToWorldPoint (Input.mousePosition).x,Camera.main.ScreenToWorldPoint (Input.mousePosition).y,0);
 			RaycastHit2D[] hits = new RaycastHit2D[2];
 			int num = Physics2D.GetRayIntersectionNonAlloc (Camera.main.ScreenPointToRay (Input.mousePosition), hits);
 			if (num > 0)
