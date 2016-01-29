@@ -10,6 +10,9 @@ public class VoodooGameController : MonoBehaviour {
 	[SerializeField]
 	private GameObject[] targetsPoints;
 
+	[SerializeField]
+	private GameObject needlePattern;
+
 	// Use this for initialization
 	void Start () {
 
@@ -29,7 +32,9 @@ public class VoodooGameController : MonoBehaviour {
 						for (int i = 0; i < (targetsPoints.Length ); i++) {
 							
 							if (hit.collider.gameObject.Equals(targetsPoints [i])) {
-								
+
+								Instantiate(needlePattern);
+
 								targetsIsClicked [i] = true;
 								break;
 							}
