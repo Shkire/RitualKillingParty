@@ -48,7 +48,10 @@ public class VoodooGameController : MonoBehaviour {
 	private System.Random rand;
 
 	// Use this for initialization
-	void Awake () {
+	void OnEnable() {
+		Debug.Log ("AWAKEEEE VOODOO");
+		completado = false;
+		timeLeftToNextPhase = timeToNextPhase;
 
 
 		rand = new System.Random (Guid.NewGuid().GetHashCode());
@@ -74,8 +77,8 @@ public class VoodooGameController : MonoBehaviour {
 
 		}
 
-
-
+		Debug.Log("Desbloqueo Contador");
+		gameController.UnlockCounter ();
 	
 
 	}
@@ -86,8 +89,13 @@ public class VoodooGameController : MonoBehaviour {
 		if (completado) {
 
 			timeLeftToNextPhase -= Time.fixedDeltaTime;
-			if (timeLeftToNextPhase <= 0)
+			if (timeLeftToNextPhase <= 0) {
+				GameObject[] needles = GameObject.FindGameObjectsWithTag ("Needle");
+				for (int i = 0; i < needles.Length; i++) {
+					Destroy(needles [i]);
+				}
 				gameController.RandomizeNextPhase (1);
+			}
 			
 		} else {
 

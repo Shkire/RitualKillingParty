@@ -35,8 +35,9 @@ public class BloodEagleController: MonoBehaviour
 	private RitualController gameController;
 
 	// Use this for initialization
-	void Start ()
+	void OnEnable()
 	{
+		gameController.UnlockCounter ();	
 	
 	}
 	
