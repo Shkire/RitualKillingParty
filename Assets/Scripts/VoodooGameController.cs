@@ -7,6 +7,8 @@ public class VoodooGameController : MonoBehaviour {
 	[SerializeField]
 	private Animator dollAnimator;
 
+	[SerializeField]
+	private ManageAudioClips dollAudio;
 
 	[SerializeField]
 	private bool[] targetsIsClicked;
@@ -123,6 +125,7 @@ public class VoodooGameController : MonoBehaviour {
 
 										GameObject needle = (GameObject)Instantiate (needlePattern, activeTargets [i].transform.position, needlePattern.transform.rotation);
 
+										dollAudio.Play (1);
 										dollAnimator.SetTrigger ("happy");
 
 										needle.transform.localScale = new Vector3 (needle.transform.localScale.x, ((float)rand.NextDouble () * 1 + 0.7f) * needle.transform.localScale.y, needle.transform.localScale.z);
@@ -145,7 +148,7 @@ public class VoodooGameController : MonoBehaviour {
 
 							if (hit.collider.gameObject.tag.Equals ("VoodooHurt")) {
 
-
+								dollAudio.Play (0);
 								dollAnimator.SetTrigger ("sad");
 
 								break;
