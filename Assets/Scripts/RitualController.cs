@@ -25,6 +25,9 @@ public class RitualController : MonoBehaviour
 	[SerializeField]
 	private float timeDecrementPerPhase;
 
+	[SerializeField]
+	private GuiController guiController;
+
 
 
 	// Use this for initialization
@@ -46,7 +49,12 @@ public class RitualController : MonoBehaviour
 	{
 
 		System.Random rnd = new System.Random (Guid.NewGuid().GetHashCode());
+		guiController.WinBoard (false);
+		voodooGame.SetActive (false);
+		bloodEagle.SetActive (false);
+		brilliantTeeth.SetActive (false);
 		int phaseSelected;
+
 		do {
 			phaseSelected = rnd.Next (1, 3);
 		} while (phaseSelected == num);

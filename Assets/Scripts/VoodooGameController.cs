@@ -20,12 +20,27 @@ public class VoodooGameController : MonoBehaviour {
 	[SerializeField]
 	private GameObject target;
 
-	const int max = 10;
-	const int min = 2;
+	[SerializeField]
+	private int max = 10;
+
+	[SerializeField]
+	private int min = 2;
+
+	[SerializeField]
+	private GuiController guiController;
+
+	[SerializeField]
+	private RitualController gameController;
+
+	private bool completado;
+
+	private float timeToNextPhase = 3;
+
+	private float timeLeftToNextPhase = 3;
+
 
 
 	private System.Random rand;
-	private bool ok = false;
 
 	// Use this for initialization
 	void Awake () {
@@ -70,45 +85,70 @@ public class VoodooGameController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-		//if (!ok) {
-		//	if (targetsIsClicked [0] && targetsIsClicked [1] && targetsIsClicked [2] && targetsIsClicked [3]) {
+		if (completado) {
 
-		//		Debug.Log ("Cambio de Scene");
-		//		ok = true;
+			timeLeftToNextPhase -= Time.fixedDeltaTime;
+			if (timeLeftToNextPhase <= 0)
+				gameController.RandomizeNextPhase (1);
+			
+		} else {
 
-		//	}
-		//}	
+			//if (!ok) {
+			//	if (targetsIsClicked [0] && targetsIsClicked [1] && targetsIsClicked [2] && targetsIsClicked [3]) {
 
+			//		Debug.Log ("Cambio de Scene");
+			//		ok = true;
 
-		if (Input.GetMouseButtonDown(0)) {	
-			RaycastHit2D[] hits = new RaycastHit2D[2];
-			int num = Physics2D.GetRayIntersectionNonAlloc (Camera.main.ScreenPointToRay (Input.mousePosition), hits);
-			if (num>0)
-				foreach (RaycastHit2D hit in hits) {
+			//	}
+			//}	
+			if (IsCompleted ()) {
+				guiController.WinBoard (true);
+				completado = true;
+				timeLeftToNextPhase = timeToNextPhase;
+
+			}
+
+			if (Input.GetMouseButtonDown (0)) {	
+				RaycastHit2D[] hits = new RaycastHit2D[2];
+				int num = Physics2D.GetRayIntersectionNonAlloc (Camera.main.ScreenPointToRay (Input.mousePosition), hits);
+				if (num > 0)
+					foreach (RaycastHit2D hit in hits) {
 					
-					if (hit.collider.gameObject.tag.Equals ("VoodooPoint")) {
+						if (hit.collider.gameObject.tag.Equals ("VoodooPoint")) {
 						
 
-						for (int i = 0; i < (activeTargets.Length ); i++) {
+							for (int i = 0; i < (activeTargets.Length); i++) {
 							
-							if ((hit.collider.gameObject.Equals(activeTargets [i])) && (!targetsIsClicked[i])) {
+								if ((hit.collider.gameObject.Equals (activeTargets [i])) && (!targetsIsClicked [i])) {
 
-								GameObject needle = (GameObject) Instantiate(needlePattern,activeTargets [i].transform.position,needlePattern.transform.rotation);
+									GameObject needle = (GameObject)Instantiate (needlePattern, activeTargets [i].transform.position, needlePattern.transform.rotation);
 
-								needle.transform.localScale = new Vector3(needle.transform.localScale.x,((float) rand.NextDouble()*1 + 0.7f)*needle.transform.localScale.y, needle.transform.localScale.z);
-								needle.transform.Rotate(new Vector3(0, 0, rand.Next (0, 360)));
+									needle.transform.localScale = new Vector3 (needle.transform.localScale.x, ((float)rand.NextDouble () * 1 + 0.7f) * needle.transform.localScale.y, needle.transform.localScale.z);
+									needle.transform.Rotate (new Vector3 (0, 0, rand.Next (0, 360)));
 
-								targetsIsClicked [i] = true;
-								break;
-							}
+									targetsIsClicked [i] = true;
+									break;
+								}
 				
 								
+							}
+							break;
 						}
-						break;
-					}
 
-				}
+					}
+			}
 		}
 
+	}
+
+	private bool IsCompleted(){
+		bool checking = true;
+		foreach (bool checkedBool in targetsIsClicked)
+			if (!checkedBool) {
+				checking = false;
+				break;
+			}
+				
+		return checking;
 	}
 }

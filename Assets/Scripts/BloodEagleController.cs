@@ -23,10 +23,7 @@ public class BloodEagleController: MonoBehaviour
 	private GameObject instantiatedCutter;
 
 	[SerializeField]
-	private GameObject winBoard;
-
-	[SerializeField]
-	private GameObject failBoard;
+	private GuiController guiController;
 
 	private float timeToNextPhase = 3;
 
@@ -92,6 +89,7 @@ public class BloodEagleController: MonoBehaviour
 		
 
 			if (IsCompleted (1) && IsCompleted (2)) {
+				Destroy (instantiatedCutter);
 				WinEffect ();
 				timeLeftToNextPhase = timeToNextPhase;
 			}
@@ -142,7 +140,7 @@ public class BloodEagleController: MonoBehaviour
 
 	private void WinEffect(){
 	
-		winBoard.SetActive (true);
+		guiController.WinBoard (true);
 		completed = true;
 
 	}
