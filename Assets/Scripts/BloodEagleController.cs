@@ -34,44 +34,52 @@ public class BloodEagleController: MonoBehaviour
 	{
 
 		if (Input.GetMouseButtonDown (0)) {	
-			instantiatedCutter = (GameObject)Instantiate (cutterPattern, new Vector3(Camera.main.ScreenToWorldPoint (Input.mousePosition).x,Camera.main.ScreenToWorldPoint (Input.mousePosition).y,0), cutterPattern.transform.rotation);
+			instantiatedCutter = (GameObject)Instantiate (cutterPattern, new Vector3 (Camera.main.ScreenToWorldPoint (Input.mousePosition).x, Camera.main.ScreenToWorldPoint (Input.mousePosition).y, 0), cutterPattern.transform.rotation);
 		}
 
 		if (Input.GetMouseButtonUp (0)) {
 			Destroy (instantiatedCutter);
 			if (!IsCompleted (1))
-				for(int i=0;i<firstCutIsClicked.Length;i++){
-					firstCutIsClicked[i] = false;
+				for (int i = 0; i < firstCutIsClicked.Length; i++) {
+					firstCutIsClicked [i] = false;
+					firstCutPattern [i].GetComponentInParent<SpriteRenderer> ().enabled = true;
 				}
 			if (!IsCompleted (2))
-				for(int i=0;i<secondCutIsClicked.Length;i++) {
+				for (int i = 0; i < secondCutIsClicked.Length; i++) {
 					secondCutIsClicked [i] = false;
+					secondCutPattern [i].GetComponentInParent<SpriteRenderer> ().enabled = true;
 				}
 		}
 		if (Input.GetMouseButton (0) && instantiatedCutter) {
-			instantiatedCutter.transform.position = new Vector3(Camera.main.ScreenToWorldPoint (Input.mousePosition).x,Camera.main.ScreenToWorldPoint (Input.mousePosition).y,0);
-			RaycastHit2D[] hits = new RaycastHit2D[2];
+			instantiatedCutter.transform.position = new Vector3 (Camera.main.ScreenToWorldPoint (Input.mousePosition).x, Camera.main.ScreenToWorldPoint (Input.mousePosition).y, 0);
+			RaycastHit2D[] hits = new RaycastHit2D[3];
 			int num = Physics2D.GetRayIntersectionNonAlloc (Camera.main.ScreenPointToRay (Input.mousePosition), hits);
 			if (num > 0)
 				foreach (RaycastHit2D hit in hits) {
-					if (hit.collider.gameObject.tag.Equals ("BloodEaglePoint")) {
+					if (hit.collider != null)
+					if (hit.collider.gameObject.tag.Equals ("BackPoint")) {
 						for (int i = 0; i < firstCutPattern.Length; i++) {
-							if (hit.collider.gameObject.Equals (firstCutPattern [i]))
+							if (hit.collider.gameObject.Equals (firstCutPattern [i])) {
 								firstCutIsClicked [i] = true;
-							break;
+								firstCutPattern [i].GetComponentInParent<SpriteRenderer> ().enabled = false;
+								break;
+							}
 						}
-							
+								
 						for (int i = 0; i < secondCutPattern.Length; i++) {
-							if (hit.collider.gameObject.Equals (secondCutPattern [i]))
+							if (hit.collider.gameObject.Equals (secondCutPattern [i])) {
 								secondCutIsClicked [i] = true;
-							break;
+								secondCutPattern [i].GetComponentInParent<SpriteRenderer> ().enabled = false;
+								break;
+							}
 						}
 					}
 				}
 		}
 	}
 
-	private bool IsCompleted(int n){
+	private bool IsCompleted (int n)
+	{
 		bool isChecked = true;
 		if (n == 1) {
 			foreach (bool check in firstCutIsClicked) {
