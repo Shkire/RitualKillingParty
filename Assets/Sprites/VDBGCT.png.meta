@@ -1,0 +1,211 @@
+fileFormatVersion: 2
+guid: 16adbf8d74032cf42abd56a88434a59e
+timeCreated: 1454171721
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: VDBGCT_0
+    21300002: VDBGCT_1
+    21300004: VDBGCT_2
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: VDBGCT_0
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 9
+        width: 142
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 68, y: 77.5}
+        - {x: 30, y: 77.5}
+        - {x: -14, y: 68.5}
+        - {x: -70, y: 18.5}
+        - {x: -70, y: 2.5}
+        - {x: -66, y: -0.5}
+        - {x: -57, y: 0.5}
+        - {x: -56, y: 1.5}
+        - {x: -54, y: 1.5}
+        - {x: -56, y: 1.5}
+        - {x: -65, y: -7.5}
+        - {x: -37, y: -18.5}
+        - {x: -7, y: -77.5}
+        - {x: 7, y: -77.5}
+        - {x: 12, y: -70.5}
+        - {x: 13, y: -67.5}
+        - {x: 68, y: 65.5}
+      - - {x: -67, y: 51.5}
+        - {x: -70, y: 31.5}
+        - {x: -70, y: 24.5}
+        - {x: -68, y: 23.5}
+        - {x: -63, y: 23.5}
+        - {x: -55, y: 38.5}
+        - {x: -55, y: 51.5}
+      - - {x: 63, y: 34.5}
+        - {x: 62, y: 31.5}
+        - {x: 63, y: 28.5}
+        - {x: 68, y: 24.5}
+        - {x: 71, y: 25.5}
+        - {x: 71, y: 31.5}
+        - {x: 67, y: 34.5}
+      - - {x: -71, y: 77.5}
+        - {x: -71, y: 58.5}
+        - {x: -64, y: 58.5}
+        - {x: -58, y: 70.5}
+        - {x: -58, y: 77.5}
+      - - {x: -9, y: 77.5}
+        - {x: -14, y: 74.5}
+        - {x: -14, y: 70.5}
+        - {x: -11, y: 68.5}
+        - {x: 0, y: 68.5}
+        - {x: 10, y: 74.5}
+        - {x: 10, y: 77.5}
+    - name: VDBGCT_1
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 0
+        width: 48
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 83}
+        - {x: -23, y: 82}
+        - {x: -23, y: -16}
+        - {x: -14, y: -83}
+        - {x: 14, y: -83}
+        - {x: 22, y: -70}
+        - {x: 22, y: 51}
+        - {x: 18, y: 83}
+      - - {x: -20, y: -39}
+        - {x: -22, y: -40}
+        - {x: -22, y: -43}
+        - {x: -19, y: -47}
+        - {x: -16, y: -47}
+        - {x: -14, y: -45}
+        - {x: -15, y: -41}
+        - {x: -16, y: -39}
+      - - {x: -24, y: -41}
+        - {x: -21, y: -40}
+        - {x: -21, y: -37}
+        - {x: -23, y: -35}
+        - {x: -24, y: -35}
+    - name: VDBGCT_2
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 169
+        width: 94
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 44, y: 15}
+        - {x: 19, y: 18}
+        - {x: -1, y: 4}
+        - {x: -9, y: -4}
+        - {x: -8, y: -12}
+        - {x: -5, y: -15}
+        - {x: -10, y: -12}
+        - {x: -9, y: -5}
+        - {x: -6, y: 1}
+        - {x: 0, y: 15}
+        - {x: 42, y: 36}
+        - {x: 45, y: 50}
+        - {x: 45, y: 68}
+        - {x: 11, y: 68}
+        - {x: -46, y: 33}
+        - {x: -46, y: -57}
+        - {x: -39, y: -59}
+        - {x: -38, y: -56}
+        - {x: -36, y: -69}
+        - {x: -33, y: -72}
+        - {x: -4, y: -72}
+        - {x: 40, y: -47}
+        - {x: 45, y: -39}
+        - {x: 45, y: 7}
+      - - {x: 31, y: -72}
+        - {x: 30, y: -69}
+        - {x: 26, y: -69}
+        - {x: 25, y: -72}
+      - - {x: 41, y: 20}
+        - {x: 44, y: 21}
+        - {x: 44, y: 24}
+        - {x: 41, y: 25}
+        - {x: 39, y: 23}
+      - - {x: -42, y: 35}
+        - {x: -46, y: 30}
+        - {x: -46, y: 28}
+        - {x: -44, y: 26}
+        - {x: -38, y: 27}
+        - {x: -35, y: 28}
+        - {x: -32, y: 32}
+        - {x: -33, y: 35}
+      - - {x: 38, y: 36}
+        - {x: 42, y: 31}
+        - {x: 44, y: 31}
+        - {x: 46, y: 32}
+        - {x: 46, y: 43}
+        - {x: 45, y: 44}
+        - {x: 40, y: 44}
+        - {x: 38, y: 43}
+      - - {x: -40, y: 64}
+        - {x: -37, y: 65}
+        - {x: -37, y: 68}
+        - {x: -40, y: 69}
+        - {x: -42, y: 67}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
