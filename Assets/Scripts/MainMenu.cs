@@ -6,6 +6,15 @@ public class MainMenu : MonoBehaviour {
 	[SerializeField]
 	private RitualController gameController;
 
+	[SerializeField]
+	private GameObject pressEnter;
+
+	void OnEnable(){
+
+		pressEnter.SetActive (true);
+
+	}
+
 	// Update is called once per frame
 	void FixedUpdate () {
 	
