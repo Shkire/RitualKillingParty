@@ -3,6 +3,9 @@ using System.Collections;
 using System;
 
 public class VoodooGameController : MonoBehaviour {
+	
+	[SerializeField]
+	private Animator dollAnimator;
 
 
 	[SerializeField]
@@ -71,14 +74,7 @@ public class VoodooGameController : MonoBehaviour {
 
 
 
-		//for (int p = 0; p < activeTargets.Length; p++) {
-
-		//	activeTargets [p].SetActive (true);
-
-//		}
-
-
-		//.setActive para activar
+	
 
 	}
 	
@@ -109,31 +105,58 @@ public class VoodooGameController : MonoBehaviour {
 			}
 
 			if (Input.GetMouseButtonDown (0)) {	
-				RaycastHit2D[] hits = new RaycastHit2D[2];
+				
+				RaycastHit2D[] hits = new RaycastHit2D[4];
 				int num = Physics2D.GetRayIntersectionNonAlloc (Camera.main.ScreenPointToRay (Input.mousePosition), hits);
+
 				if (num > 0)
 					foreach (RaycastHit2D hit in hits) {
 					
-						if (hit.collider.gameObject.tag.Equals ("VoodooPoint")) {
-						
+						if(hit.collider){
 
-							for (int i = 0; i < (activeTargets.Length); i++) {
-							
-								if ((hit.collider.gameObject.Equals (activeTargets [i])) && (!targetsIsClicked [i])) {
+							if (hit.collider.gameObject.tag.Equals ("VoodooPoint")) {
+								
+								int i;
+								for (i = 0; i < (activeTargets.Length); i++) {
 
-									GameObject needle = (GameObject)Instantiate (needlePattern, activeTargets [i].transform.position, needlePattern.transform.rotation);
+									if ((hit.collider.gameObject.Equals (activeTargets [i])) && (!targetsIsClicked [i])) {
 
-									needle.transform.localScale = new Vector3 (needle.transform.localScale.x, ((float)rand.NextDouble () * 1 + 0.7f) * needle.transform.localScale.y, needle.transform.localScale.z);
-									needle.transform.Rotate (new Vector3 (0, 0, rand.Next (0, 360)));
+										GameObject needle = (GameObject)Instantiate (needlePattern, activeTargets [i].transform.position, needlePattern.transform.rotation);
 
-									targetsIsClicked [i] = true;
+										dollAnimator.SetTrigger ("happy");
+
+										needle.transform.localScale = new Vector3 (needle.transform.localScale.x, ((float)rand.NextDouble () * 1 + 0.7f) * needle.transform.localScale.y, needle.transform.localScale.z);
+										needle.transform.Rotate (new Vector3 (0, 0, rand.Next (0, 360)));
+
+										targetsIsClicked [i] = true;
+										break;
+									}
+
+
+
+
+								}
+
+								if (i <= activeTargets.Length) {
 									break;
 								}
-				
-								
+
 							}
-							break;
+
+							if (hit.collider.gameObject.tag.Equals ("VoodooHurt")) {
+
+
+								dollAnimator.SetTrigger ("sad");
+
+								break;
+							}
+
+
+
+
 						}
+
+
 
 					}
 			}
