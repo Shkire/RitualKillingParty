@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class RitualController : MonoBehaviour
 {
@@ -41,7 +42,7 @@ public class RitualController : MonoBehaviour
 	public void RandomizeNextPhase (int num)
 	{
 
-		System.Random rnd = new System.Random (123456);
+		System.Random rnd = new System.Random (Guid.NewGuid().GetHashCode());
 		int phaseSelected;
 		do {
 			phaseSelected = rnd.Next (1, 3);

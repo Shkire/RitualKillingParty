@@ -38,19 +38,13 @@ public class BloodEagleController: MonoBehaviour
 		}
 
 		if (Input.GetMouseButtonUp (0)) {
-			Destroy (instantiatedCutter);
-			if (!IsCompleted (1))
-				for (int i = 0; i < firstCutIsClicked.Length; i++) {
-					firstCutIsClicked [i] = false;
-					firstCutPattern [i].GetComponentInParent<SpriteRenderer> ().enabled = true;
-				}
-			if (!IsCompleted (2))
-				for (int i = 0; i < secondCutIsClicked.Length; i++) {
-					secondCutIsClicked [i] = false;
-					secondCutPattern [i].GetComponentInParent<SpriteRenderer> ().enabled = true;
-				}
+			ResetIncomplete ();
 		}
 		if (Input.GetMouseButton (0) && instantiatedCutter) {
+			foreach (GameObject axe in GameObject.FindGameObjectsWithTag ("Axe")) {
+				if (!axe.Equals (instantiatedCutter))
+					Destroy (axe);
+			}
 			instantiatedCutter.transform.position = new Vector3 (Camera.main.ScreenToWorldPoint (Input.mousePosition).x, Camera.main.ScreenToWorldPoint (Input.mousePosition).y, 0);
 			RaycastHit2D[] hits = new RaycastHit2D[3];
 			int num = Physics2D.GetRayIntersectionNonAlloc (Camera.main.ScreenPointToRay (Input.mousePosition), hits);
@@ -74,7 +68,16 @@ public class BloodEagleController: MonoBehaviour
 							}
 						}
 					}
+					if (hit.collider != null)
+					if (hit.collider.gameObject.tag.Equals ("BackHurt")) {
+						ResetIncomplete ();
+						break;
+					}
 				}
+		}
+
+		if (IsCompleted (1) && IsCompleted (2)) {
+			WinEffect ();
 		}
 	}
 
@@ -102,4 +105,21 @@ public class BloodEagleController: MonoBehaviour
 		return isChecked;
 	}
 
+	private void ResetIncomplete(){
+		Destroy (instantiatedCutter);
+		if (!IsCompleted (1))
+			for (int i = 0; i < firstCutIsClicked.Length; i++) {
+				firstCutIsClicked [i] = false;
+				firstCutPattern [i].GetComponentInParent<SpriteRenderer> ().enabled = true;
+			}
+		if (!IsCompleted (2))
+			for (int i = 0; i < secondCutIsClicked.Length; i++) {
+				secondCutIsClicked [i] = false;
+				secondCutPattern [i].GetComponentInParent<SpriteRenderer> ().enabled = true;
+			}
+	}
+
+	private void WinEffect(){
+	
+	}
 }
