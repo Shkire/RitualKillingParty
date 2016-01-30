@@ -30,13 +30,16 @@ public class RitualController : MonoBehaviour
 	// Use this for initialization
 	void Awake ()
 	{
-	
+		timeLeft = 10;
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
 	{
-	
+		timeLeft -= Time.fixedDeltaTime;
+		Debug.Log (timeLeft);
+
+
 	}
 
 	public void RandomizeNextPhase (int num)

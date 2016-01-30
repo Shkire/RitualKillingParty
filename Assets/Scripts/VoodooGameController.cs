@@ -95,7 +95,7 @@ public class VoodooGameController : MonoBehaviour {
 
 								GameObject needle = (GameObject) Instantiate(needlePattern,activeTargets [i].transform.position,needlePattern.transform.rotation);
 
-								needle.transform.localScale = new Vector3(needle.transform.localScale.x,(float) rand.NextDouble()*1 + 0.7f, needle.transform.localScale.z);
+								needle.transform.localScale = new Vector3(needle.transform.localScale.x,((float) rand.NextDouble()*1 + 0.7f)*needle.transform.localScale.y, needle.transform.localScale.z);
 								needle.transform.Rotate(new Vector3(0, 0, rand.Next (0, 360)));
 
 								targetsIsClicked [i] = true;
