@@ -44,6 +44,12 @@ public class BloodEagleController: MonoBehaviour
 	[SerializeField]
 	private Animator manAnimator;
 
+	[SerializeField]
+	private Animator leftHoleAnimator;
+
+	[SerializeField]
+	private Animator rightHoleAnimator;
+
 	// Use this for initialization
 	void OnEnable()
 	{
@@ -99,17 +105,22 @@ public class BloodEagleController: MonoBehaviour
 			}
 		
 			if (IsCompleted (1) && !primerAudio) {
+				leftHoleAnimator.gameObject.SetActive (true);
 				manAudio.Play (1);
 				primerAudio = true;
 			}
 
+
 			if (IsCompleted (2) && !segundoAudio) {
+				rightHoleAnimator.gameObject.SetActive (true);
 				manAudio.Play (1);
 				segundoAudio = true;
 			}
 
 
 			if (IsCompleted (1) && IsCompleted (2)) {
+				leftHoleAnimator.SetTrigger ("Completed");
+				rightHoleAnimator.SetTrigger ("Completed");
 				Destroy (instantiatedCutter);
 				WinEffect ();
 				timeLeftToNextPhase = timeToNextPhase;
@@ -146,6 +157,8 @@ public class BloodEagleController: MonoBehaviour
 	}
 
 	private void ResetIncomplete(){
+		leftHoleAnimator.SetTrigger ("Hit");
+		rightHoleAnimator.SetTrigger ("Hit");
 		Destroy (instantiatedCutter);
 		if (!IsCompleted (1))
 			for (int i = 0; i < firstCutIsClicked.Length; i++) {
