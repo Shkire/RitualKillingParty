@@ -34,6 +34,16 @@ public class BloodEagleController: MonoBehaviour
 	[SerializeField]
 	private RitualController gameController;
 
+	[SerializeField]
+	private ManageAudioClips manAudio;
+
+	private bool primerAudio;
+
+	private bool segundoAudio;
+
+	[SerializeField]
+	private Animator manAnimator;
+
 	// Use this for initialization
 	void OnEnable()
 	{
@@ -88,6 +98,16 @@ public class BloodEagleController: MonoBehaviour
 					}
 			}
 		
+			if (IsCompleted (1) && !primerAudio) {
+				manAudio.Play (1);
+				primerAudio = true;
+			}
+
+			if (IsCompleted (2) && !segundoAudio) {
+				manAudio.Play (1);
+				segundoAudio = true;
+			}
+
 
 			if (IsCompleted (1) && IsCompleted (2)) {
 				Destroy (instantiatedCutter);
@@ -137,6 +157,8 @@ public class BloodEagleController: MonoBehaviour
 				secondCutIsClicked [i] = false;
 				secondCutPattern [i].GetComponentInParent<SpriteRenderer> ().enabled = true;
 			}
+		manAudio.Play (0);
+		manAnimator.SetTrigger ("Hit");
 	}
 
 	private void WinEffect(){
