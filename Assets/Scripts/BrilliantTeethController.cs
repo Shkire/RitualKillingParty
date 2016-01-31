@@ -4,6 +4,12 @@ using System;
 
 public class BrilliantTeethController : MonoBehaviour {
 
+	[SerializeField]
+	private RitualController gameController;
+	[SerializeField]
+	private GuiController guiController;
+
+	private bool completed;
 
 	[SerializeField]
 	private bool picked  = false;
@@ -15,7 +21,7 @@ public class BrilliantTeethController : MonoBehaviour {
 	private GameObject[] dientes;
 
 	[SerializeField]
-	private GameObject[] dientes2;
+	public GameObject[] dientes2;
 
 	[SerializeField]
 	private int max = 21;
@@ -24,6 +30,8 @@ public class BrilliantTeethController : MonoBehaviour {
 	private int min = 2;
 
 	private System.Random rand;
+
+	private bool fin;
 
 	// Use this for initialization
 	void OnEnable () {
@@ -87,9 +95,32 @@ public class BrilliantTeethController : MonoBehaviour {
 
 			}
 
+		fin = false;
 
-			}
+		for(int a = 0; a < dientes2.Length;a++){
+
+			if (dientes2 [a]) {
+				break;
+			
+
+			fin = true;
+		}
+
+		if (fin) {
+
+
+			gameController.win = true;
+			gameController.LockCounter ();
+			guiController.WinBoard (true);
+			completed = true;
+
+		}
+
+	}
 
 
 
+
+
+}
 }
