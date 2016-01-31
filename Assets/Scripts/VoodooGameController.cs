@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
-using UnityEditor.VersionControl;
 
 public class VoodooGameController : MonoBehaviour {
-	
+
 	[SerializeField]
 	private Animator dollAnimator;
 
@@ -56,7 +55,7 @@ public class VoodooGameController : MonoBehaviour {
 
 
 		rand = new System.Random (Guid.NewGuid().GetHashCode());
-		
+
 		int randomnumber = rand.Next(min,max);
 
 
@@ -67,7 +66,7 @@ public class VoodooGameController : MonoBehaviour {
 			int randomtarget;
 
 			do{
-				
+
 				randomtarget = rand.Next(0, (targetsPoints.Length -1));
 
 
@@ -80,16 +79,12 @@ public class VoodooGameController : MonoBehaviour {
 
 		Debug.Log("Desbloqueo Contador");
 		gameController.UnlockCounter ();
-	
+
 
 	}
-	
+
 	// Update is called once per frame
 	void FixedUpdate () {
-
-		bool isVoodoo = false;
-		bool isHurt = false;
-
 
 		if (completado) {
 
@@ -101,7 +96,7 @@ public class VoodooGameController : MonoBehaviour {
 				}
 				gameController.RandomizeNextPhase (1);
 			}
-			
+
 		} else {
 
 			//if (!ok) {
@@ -121,17 +116,17 @@ public class VoodooGameController : MonoBehaviour {
 			}
 
 			if (Input.GetMouseButtonDown (0)) {	
-				
-				RaycastHit2D[] hits = new RaycastHit2D[2];
+
+				RaycastHit2D[] hits = new RaycastHit2D[4];
 				int num = Physics2D.GetRayIntersectionNonAlloc (Camera.main.ScreenPointToRay (Input.mousePosition), hits);
 
 				if (num > 0)
 					foreach (RaycastHit2D hit in hits) {
-					
+
 						if(hit.collider){
 
 							if (hit.collider.gameObject.tag.Equals ("VoodooPoint")) {
-								
+
 								int i;
 								for (i = 0; i < (activeTargets.Length); i++) {
 
@@ -144,10 +139,12 @@ public class VoodooGameController : MonoBehaviour {
 
 										needle.transform.localScale = new Vector3 (needle.transform.localScale.x, ((float)rand.NextDouble () * 1 + 0.7f) * needle.transform.localScale.y, needle.transform.localScale.z);
 										needle.transform.Rotate (new Vector3 (0, 0, rand.Next (0, 360)));
-										isVoodoo = true;
+
 										targetsIsClicked [i] = true;
 										break;
 									}
+
+
 
 
 								}
@@ -156,33 +153,24 @@ public class VoodooGameController : MonoBehaviour {
 									break;
 								}
 
-							} 
-
-							if (hit.collider.gameObject.tag.Equals ("VoodooHurt")) {
-								isHurt = true;
-
 							}
 
-							/*if (hit.collider.gameObject.tag.Equals ("VoodooHurt")) {
+							if (hit.collider.gameObject.tag.Equals ("VoodooHurt")) {
 
-								isHurt = true;
+								dollAudio.Play (0);
+								dollAnimator.SetTrigger ("sad");
 
-								//break;
-							}*/
+								break;
+							}
+
+
+
 
 						}
 
 
+
 					}
-
-
-				if (isHurt) {
-						dollAudio.Play (0);
-						dollAnimator.SetTrigger ("sad");
-					
-				}
-
-
 			}
 		}
 
@@ -195,13 +183,10 @@ public class VoodooGameController : MonoBehaviour {
 				checking = false;
 				break;
 			}
-				
+
 		return checking;
 	}
 
-<<<<<<< HEAD
-
-=======
 	public void ResetLevel(){
 
 		foreach (GameObject go in targetsPoints) {
@@ -213,9 +198,8 @@ public class VoodooGameController : MonoBehaviour {
 			go.SetActive (false);
 			completado = false;
 
-		
+
 		}
 
 	}
->>>>>>> origin/master
 }
