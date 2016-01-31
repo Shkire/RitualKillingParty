@@ -109,6 +109,7 @@ public class VoodooGameController : MonoBehaviour {
 			//}	
 			if (IsCompleted ()) {
 				gameController.LockCounter ();
+				gameController.win = true;
 				guiController.WinBoard (true);
 				completado = true;
 				timeLeftToNextPhase = timeToNextPhase;

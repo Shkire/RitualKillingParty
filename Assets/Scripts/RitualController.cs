@@ -39,6 +39,10 @@ public class RitualController : MonoBehaviour
 
 	private int ant;
 
+	public bool win = false;
+
+	private float waittime= 3.0f;
+	private float leftwaittime= 0.0f;
 
 	// Use this for initialization
 	void Awake ()
@@ -50,15 +54,32 @@ public class RitualController : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
+
+		if (leftwaittime > 0) {
+
+			leftwaittime -= Time.fixedDeltaTime;
+		
+		} else {
+			if (!counterUnlocked && !win) {
+				RandomizeNextPhase (ant);
+			}
+		}
+
+
 		if (counterUnlocked) {
 			if (timeLeft > 0) {
 				timeLeft -= Time.fixedDeltaTime;
 				if (timeLeft>=0)
 				ConfigCounter ();
 			} else {
-				//guiController.FailBoard (true);
+				guiController.FailBoard (true);
 				guiController.TimeCounter (false);
-				RandomizeNextPhase (ant);
+				counterUnlocked = false;
+				win = false;
+				leftwaittime = waittime;
+				//RandomizeNextPhase (ant);
+
+
 			}
 		}
 
@@ -73,7 +94,7 @@ public class RitualController : MonoBehaviour
 		counterUnlocked = false;
 		System.Random rnd = new System.Random (Guid.NewGuid().GetHashCode());
 		guiController.WinBoard (false);
-		//guiController.FailBoard (false);
+		guiController.FailBoard (false);
 		guiController.TimeCounter (true);
 		voodooGame.GetComponentInChildren<VoodooGameController> ().ResetLevel ();
 		brilliantTeeth.SetActive (false);

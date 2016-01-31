@@ -174,7 +174,8 @@ public class BloodEagleController: MonoBehaviour
 	}
 
 	private void WinEffect(){
-	
+
+		gameController.win = true;
 		gameController.LockCounter ();
 		guiController.WinBoard (true);
 		completed = true;
