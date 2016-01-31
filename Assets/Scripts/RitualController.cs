@@ -18,13 +18,13 @@ public class RitualController : MonoBehaviour
 	private int lifes = 3;
 
 	[SerializeField]
-	private float timeLimit;
+	private float timeLimit=10f;
 
 	[SerializeField]
 	private float timeLeft;
 
 	[SerializeField]
-	private float timeDecrementPerPhase;
+	private float timeDecrementPerPhase=0.333f;
 
 	[SerializeField]
 	private GuiController guiController;
@@ -91,17 +91,18 @@ public class RitualController : MonoBehaviour
 		bloodEagle.GetComponentInChildren<BloodEagleController> ().ResetLevel ();
 		voodooGame.SetActive (false);
 		bloodEagle.SetActive (false);
+		brilliantTeeth.SetActive (false);
 		counterUnlocked = false;
 		System.Random rnd = new System.Random (Guid.NewGuid().GetHashCode());
 		guiController.WinBoard (false);
 		guiController.FailBoard (false);
 		guiController.TimeCounter (true);
 		voodooGame.GetComponentInChildren<VoodooGameController> ().ResetLevel ();
-		brilliantTeeth.SetActive (false);
+		//brilliantTeeth.GetComponentInChildren<BrilliantTeethController> ().ResetLevel ();
 		int phaseSelected;
 
 		do {
-			phaseSelected = rnd.Next (1, 3);
+			phaseSelected = rnd.Next (1, 4);
 		} while (phaseSelected == num);
 
 		switch (phaseSelected) {
@@ -111,9 +112,9 @@ public class RitualController : MonoBehaviour
 		case 2:
 			bloodEagle.SetActive (true);
 			break;
-		/*case 3:
+		case 3:
 			brilliantTeeth.SetActive (true);
-			break;*/
+			break;
 		}
 
 		if (ant!=0)
