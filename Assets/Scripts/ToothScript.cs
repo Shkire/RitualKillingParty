@@ -21,7 +21,6 @@ public class ToothScript : MonoBehaviour {
 		
 		if (coll.gameObject.tag.Equals ("tooth")) {
 
-			Debug.Log (coll.gameObject);
 			//otraMitad.dientes.Contains(coll.gameObject)
 
 			if(true){

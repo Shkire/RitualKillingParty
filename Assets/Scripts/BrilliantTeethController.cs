@@ -29,9 +29,11 @@ public class BrilliantTeethController : MonoBehaviour {
 	[SerializeField]
 	private int min = 2;
 
+
+
 	private System.Random rand;
 
-	private bool fin;
+	private bool fin = false;
 
 	// Use this for initialization
 	void OnEnable () {
@@ -95,20 +97,13 @@ public class BrilliantTeethController : MonoBehaviour {
 
 			}
 
-		fin = false;
-
-		for(int a = 0; a < dientes2.Length;a++){
-
-			if (dientes2 [a]) {
-				break;
-			
-
-			fin = true;
-		}
-
-		if (fin) {
 
 
+
+
+		if (IsCompleted()) {
+
+			Debug.Log ("a");
 			gameController.win = true;
 			gameController.LockCounter ();
 			guiController.WinBoard (true);
@@ -118,9 +113,21 @@ public class BrilliantTeethController : MonoBehaviour {
 
 	}
 
+	private bool IsCompleted (){
+		
+		int count = 0;
+
+		foreach (GameObject check in dientes2) {
+			if (!check.activeSelf) {
+				count++;
+				}
+			}
+
+		return count==dientes2.Length;
+	}
 
 
 
 
-}
+
 }
