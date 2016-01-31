@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEditor.VersionControl;
 
 public class VoodooGameController : MonoBehaviour {
 	
@@ -86,6 +87,10 @@ public class VoodooGameController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
+		bool isVoodoo = false;
+		bool isHurt = false;
+
+
 		if (completado) {
 
 			timeLeftToNextPhase -= Time.fixedDeltaTime;
@@ -117,7 +122,7 @@ public class VoodooGameController : MonoBehaviour {
 
 			if (Input.GetMouseButtonDown (0)) {	
 				
-				RaycastHit2D[] hits = new RaycastHit2D[4];
+				RaycastHit2D[] hits = new RaycastHit2D[2];
 				int num = Physics2D.GetRayIntersectionNonAlloc (Camera.main.ScreenPointToRay (Input.mousePosition), hits);
 
 				if (num > 0)
@@ -139,12 +144,10 @@ public class VoodooGameController : MonoBehaviour {
 
 										needle.transform.localScale = new Vector3 (needle.transform.localScale.x, ((float)rand.NextDouble () * 1 + 0.7f) * needle.transform.localScale.y, needle.transform.localScale.z);
 										needle.transform.Rotate (new Vector3 (0, 0, rand.Next (0, 360)));
-
+										isVoodoo = true;
 										targetsIsClicked [i] = true;
 										break;
 									}
-
-
 
 
 								}
@@ -153,24 +156,33 @@ public class VoodooGameController : MonoBehaviour {
 									break;
 								}
 
-							}
+							} 
 
 							if (hit.collider.gameObject.tag.Equals ("VoodooHurt")) {
+								isHurt = true;
 
-								dollAudio.Play (0);
-								dollAnimator.SetTrigger ("sad");
-
-								break;
 							}
 
+							/*if (hit.collider.gameObject.tag.Equals ("VoodooHurt")) {
 
+								isHurt = true;
 
+								//break;
+							}*/
 
 						}
 
 
-
 					}
+
+
+				if (isHurt) {
+						dollAudio.Play (0);
+						dollAnimator.SetTrigger ("sad");
+					
+				}
+
+
 			}
 		}
 
@@ -187,6 +199,9 @@ public class VoodooGameController : MonoBehaviour {
 		return checking;
 	}
 
+<<<<<<< HEAD
+
+=======
 	public void ResetLevel(){
 
 		foreach (GameObject go in targetsPoints) {
@@ -202,4 +217,5 @@ public class VoodooGameController : MonoBehaviour {
 		}
 
 	}
+>>>>>>> origin/master
 }
