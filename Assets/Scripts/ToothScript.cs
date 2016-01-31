@@ -25,12 +25,14 @@ public class ToothScript : MonoBehaviour {
 			//otraMitad.dientes.Contains(coll.gameObject)
 
 			if(true){
-				Debug.Log ("secif");
+				
 
-				if(coll.gameObject.transform.rotation.z == 180)
-					coll.gameObject.transform.position = coll.gameObject.transform.position + new Vector3(0,0.02f,0);
-					else
-				coll.gameObject.transform.position = coll.gameObject.transform.position + new Vector3(0,-0.02f,0);
+				if (coll.gameObject.transform.rotation.z == -1.0) {
+					
+					coll.gameObject.transform.position = coll.gameObject.transform.position + new Vector3 (0, 0.02f, 0);
+				} else {
+					coll.gameObject.transform.position = coll.gameObject.transform.position + new Vector3 (0, -0.02f, 0);
+				}
 
 				otraMitad.dientes.Remove (gameObject);
 
