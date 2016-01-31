@@ -76,8 +76,7 @@ public class BrilliantTeethController : MonoBehaviour {
 			if (Input.GetMouseButton (0) && picked) {
 
 				instantiatedFine.transform.position = new Vector3 (Camera.main.ScreenToWorldPoint (Input.mousePosition).x, Camera.main.ScreenToWorldPoint (Input.mousePosition).y, 0);
-				
-				if(
+
 				
 
 			
@@ -90,6 +89,9 @@ public class BrilliantTeethController : MonoBehaviour {
 
 			}
 
+
+
+	
 
 
 }
