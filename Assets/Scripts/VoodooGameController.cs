@@ -113,6 +113,7 @@ public class VoodooGameController : MonoBehaviour {
 			//	}
 			//}	
 			if (IsCompleted ()) {
+				gameController.LockCounter ();
 				guiController.WinBoard (true);
 				completado = true;
 				timeLeftToNextPhase = timeToNextPhase;
@@ -198,5 +199,23 @@ public class VoodooGameController : MonoBehaviour {
 		return checking;
 	}
 
+<<<<<<< HEAD
 
+=======
+	public void ResetLevel(){
+
+		foreach (GameObject go in targetsPoints) {
+
+			GameObject[] needles = GameObject.FindGameObjectsWithTag ("Needle");
+			for (int i = 0; i < needles.Length; i++) {
+				Destroy(needles [i]);
+			}
+			go.SetActive (false);
+			completado = false;
+
+		
+		}
+
+	}
+>>>>>>> origin/master
 }
