@@ -123,7 +123,6 @@ public class BloodEagleController: MonoBehaviour
 				rightHoleAnimator.SetTrigger ("Completed");
 				Destroy (instantiatedCutter);
 				WinEffect ();
-				timeLeftToNextPhase = timeToNextPhase;
 			}
 		} else {
 			timeLeftToNextPhase -= Time.fixedDeltaTime;
@@ -176,8 +175,36 @@ public class BloodEagleController: MonoBehaviour
 
 	private void WinEffect(){
 	
+		gameController.LockCounter ();
 		guiController.WinBoard (true);
 		completed = true;
 
+	}
+
+	public void ResetLevel(){
+	
+		leftHoleAnimator.gameObject.SetActive (false);
+		rightHoleAnimator.gameObject.SetActive (false);
+		firstCutIsClicked = new bool[firstCutIsClicked.Length];
+		secondCutIsClicked = new bool[secondCutIsClicked.Length];
+		foreach (GameObject go in firstCutPattern) {
+
+			if(go.GetComponentInParent<SpriteRenderer> ())
+			go.GetComponentInParent<SpriteRenderer> ().enabled=true;
+		
+		}
+
+		foreach (GameObject go in secondCutPattern) {
+
+			if(go.GetComponentInParent<SpriteRenderer> ())
+			go.GetComponentInParent<SpriteRenderer> ().enabled=true;
+
+		}
+
+		primerAudio = false;
+		segundoAudio = false;
+		completed = false;
+		timeLeftToNextPhase = timeToNextPhase;
+		Destroy (instantiatedCutter);
 	}
 }

@@ -44,7 +44,6 @@ public class RitualController : MonoBehaviour
 	void Awake ()
 	{
 		counterUnlocked = false;
-		Debug.Log("Game controller se despierta");
 		RandomizeNextPhase (0);
 	}
 	
@@ -54,9 +53,9 @@ public class RitualController : MonoBehaviour
 		if (counterUnlocked) {
 			if (timeLeft > 0) {
 				timeLeft -= Time.fixedDeltaTime;
+				if (timeLeft>=0)
 				ConfigCounter ();
 			} else {
-				Debug.Log ("Se acabo el tiempo");
 				//guiController.FailBoard (true);
 				guiController.TimeCounter (false);
 				RandomizeNextPhase (ant);
@@ -68,14 +67,15 @@ public class RitualController : MonoBehaviour
 
 	public void RandomizeNextPhase (int num)
 	{
+		bloodEagle.GetComponentInChildren<BloodEagleController> ().ResetLevel ();
+		voodooGame.SetActive (false);
+		bloodEagle.SetActive (false);
 		counterUnlocked = false;
-		Debug.Log ("Randomiza y lanza juego...");
 		System.Random rnd = new System.Random (Guid.NewGuid().GetHashCode());
 		guiController.WinBoard (false);
 		//guiController.FailBoard (false);
 		guiController.TimeCounter (true);
-		voodooGame.SetActive (false);
-		bloodEagle.SetActive (false);
+		voodooGame.GetComponentInChildren<VoodooGameController> ().ResetLevel ();
 		brilliantTeeth.SetActive (false);
 		int phaseSelected;
 
@@ -94,20 +94,18 @@ public class RitualController : MonoBehaviour
 			brilliantTeeth.SetActive (true);
 			break;*/
 		}
+
 		if (ant!=0)
 		timeLimit -= timeDecrementPerPhase;
 		ant = phaseSelected;
 		timeLeft = timeLimit;
-		Debug.Log (ant);
 	}
 
 	private void ConfigCounter(){
-		Debug.Log ("Config counter");
 		int firstNum = Mathf.FloorToInt(timeLeft / 10);
 		int secondNum = Mathf.FloorToInt( timeLeft / 1 - (firstNum * 10));
 		int thirdNum =  Mathf.FloorToInt(timeLeft * 10 - (firstNum * 100) - (secondNum * 10));
 		int fourthNum = Mathf.FloorToInt (timeLeft * 100 - (firstNum * 1000) - (secondNum * 100) - (thirdNum * 10));
-
 		switch (firstNum) {
 		case 0:
 			numbers [0].GetComponent<Image> ().sprite = sources [0];
@@ -205,7 +203,6 @@ public class RitualController : MonoBehaviour
 			numbers [2].GetComponent<Image> ().sprite = sources [9];
 			break;
 		}
-
 		switch (fourthNum) {
 		case 0:
 			numbers [3].GetComponent<Image> ().sprite = sources [0];
@@ -243,5 +240,9 @@ public class RitualController : MonoBehaviour
 
 	public void UnlockCounter(){
 		counterUnlocked = true;
+	}
+
+	public void LockCounter(){
+		counterUnlocked = false;
 	}
 }
