@@ -160,7 +160,7 @@ public class VoodooGameController : MonoBehaviour {
 								dollAudio.Play (0);
 								dollAnimator.SetTrigger ("sad");
 
-								break;
+								//break;
 							}
 
 

@@ -3,16 +3,41 @@ using System.Collections;
 
 public class ToothScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+	[SerializeField]
+	private ToothScript otraMitad;
+
+	public ArrayList dientes;
+
+	void Awake (){
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-
-
+		dientes = new ArrayList ();
 
 	}
+
+
+
+
+	void OnTriggerEnter2D(Collider2D coll){
+		
+		if (coll.gameObject.tag.Equals ("tooth")) {
+
+			Debug.Log (coll.gameObject);
+			//otraMitad.dientes.Contains(coll.gameObject)
+
+			if(true){
+				Debug.Log ("secif");
+
+				if(coll.gameObject.transform.rotation.z == 180)
+					coll.gameObject.transform.position = coll.gameObject.transform.position + new Vector3(0,0.02f,0);
+					else
+				coll.gameObject.transform.position = coll.gameObject.transform.position + new Vector3(0,-0.02f,0);
+
+				otraMitad.dientes.Remove (gameObject);
+
+			}
+				
+			dientes.Add (gameObject);
+
+	}
+}
 }
