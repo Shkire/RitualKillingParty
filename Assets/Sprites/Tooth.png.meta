@@ -1,0 +1,348 @@
+fileFormatVersion: 2
+guid: 57bee33e028a3484ea03e2535cb9ad13
+timeCreated: 1454187331
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Tooth_0
+    21300002: Tooth_1
+    21300004: Tooth_2
+    21300006: Tooth_3
+    21300008: Tooth_4
+    21300010: Tooth_5
+    21300012: Tooth_6
+    21300014: Tooth_7
+    21300016: Tooth_8
+    21300018: Tooth_9
+    21300020: Tooth_10
+    21300022: Tooth_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Tooth_0
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 1064
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Tooth_1
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 552
+        width: 358
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: -163.5}
+        - {x: -17, y: -206.5}
+        - {x: -3, y: -225.5}
+        - {x: 22, y: -228.5}
+        - {x: 39, y: -217.5}
+        - {x: 47, y: -205.5}
+        - {x: 61, y: -162.5}
+        - {x: 63, y: -174.5}
+        - {x: 67, y: -193.5}
+        - {x: 83, y: -213.5}
+        - {x: 99, y: -216.5}
+        - {x: 113, y: -215.5}
+        - {x: 130, y: -200.5}
+        - {x: 138, y: -186.5}
+        - {x: 146, y: -130.5}
+        - {x: 139, y: -25.5}
+        - {x: 167, y: 27.5}
+        - {x: 179, y: 66.5}
+        - {x: 179, y: 164.5}
+        - {x: 174, y: 186.5}
+        - {x: 170, y: 194.5}
+        - {x: 150, y: 219.5}
+        - {x: 139, y: 226.5}
+        - {x: 110, y: 239.5}
+        - {x: 67, y: 239.5}
+        - {x: 60, y: 238.5}
+        - {x: 23, y: 229.5}
+        - {x: 13, y: 223.5}
+        - {x: -8, y: 219.5}
+        - {x: -49, y: 232.5}
+        - {x: -69, y: 236.5}
+        - {x: -108, y: 235.5}
+        - {x: -139, y: 225.5}
+        - {x: -154, y: 219.5}
+        - {x: -179, y: 188.5}
+        - {x: -179, y: 82.5}
+        - {x: -172, y: 18.5}
+        - {x: -157, y: -14.5}
+        - {x: -148, y: -24.5}
+        - {x: -142, y: -31.5}
+        - {x: -121, y: -51.5}
+        - {x: -121, y: -73.5}
+        - {x: -118, y: -135.5}
+        - {x: -116, y: -152.5}
+        - {x: -110, y: -175.5}
+        - {x: -95, y: -229.5}
+        - {x: -80, y: -239.5}
+        - {x: -52, y: -239.5}
+        - {x: -36, y: -226.5}
+        - {x: -33, y: -212.5}
+        - {x: -31, y: -170.5}
+    - name: Tooth_2
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 1029
+        width: 13
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Tooth_3
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 0
+        width: 226
+        height: 555
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 88, y: -277.5}
+        - {x: 89, y: -273.5}
+        - {x: 75, y: -252.5}
+        - {x: 82, y: -200.5}
+        - {x: 76, y: -130.5}
+        - {x: 77, y: -123.5}
+        - {x: 111, y: -93.5}
+        - {x: 113, y: -84.5}
+        - {x: 113, y: 37.5}
+        - {x: 101, y: 114.5}
+        - {x: 89, y: 155.5}
+        - {x: 74, y: 192.5}
+        - {x: 43, y: 260.5}
+        - {x: 37, y: 269.5}
+        - {x: 30, y: 277.5}
+        - {x: 1, y: 277.5}
+        - {x: -25, y: 261.5}
+        - {x: -32, y: 254.5}
+        - {x: -51, y: 238.5}
+        - {x: -67, y: 219.5}
+        - {x: -78, y: 182.5}
+        - {x: -102, y: 122.5}
+        - {x: -110, y: 100.5}
+        - {x: -113, y: 49.5}
+        - {x: -113, y: -41.5}
+        - {x: -112, y: -45.5}
+        - {x: -99, y: -85.5}
+        - {x: -83, y: -118.5}
+        - {x: -67, y: -149.5}
+        - {x: -76, y: -184.5}
+        - {x: -91, y: -258.5}
+        - {x: -88, y: -277.5}
+        - {x: -27, y: -277.5}
+        - {x: -18, y: -270.5}
+        - {x: 2, y: -268.5}
+        - {x: 16, y: -277.5}
+    - name: Tooth_4
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 520
+        width: 316
+        height: 505
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 97, y: -177.5}
+        - {x: 105, y: -135.5}
+        - {x: 107, y: -110.5}
+        - {x: 108, y: -67.5}
+        - {x: 135, y: -43.5}
+        - {x: 156, y: -23.5}
+        - {x: 158, y: -11.5}
+        - {x: 158, y: 170.5}
+        - {x: 156, y: 183.5}
+        - {x: 145, y: 215.5}
+        - {x: 128, y: 236.5}
+        - {x: 118, y: 243.5}
+        - {x: 106, y: 250.5}
+        - {x: 99, y: 252.5}
+        - {x: 3, y: 252.5}
+        - {x: -10, y: 250.5}
+        - {x: -19, y: 248.5}
+        - {x: -45, y: 246.5}
+        - {x: -76, y: 252.5}
+        - {x: -85, y: 252.5}
+        - {x: -117, y: 250.5}
+        - {x: -131, y: 243.5}
+        - {x: -148, y: 220.5}
+        - {x: -158, y: 190.5}
+        - {x: -158, y: 178.5}
+        - {x: -157, y: 155.5}
+        - {x: -158, y: 146.5}
+        - {x: -158, y: 37.5}
+        - {x: -157, y: 29.5}
+        - {x: -143, y: -11.5}
+        - {x: -139, y: -18.5}
+        - {x: -123, y: -35.5}
+        - {x: -110, y: -43.5}
+        - {x: -108, y: -67.5}
+        - {x: -107, y: -77.5}
+        - {x: -105, y: -92.5}
+        - {x: -102, y: -115.5}
+        - {x: -96, y: -135.5}
+        - {x: -89, y: -149.5}
+        - {x: -83, y: -181.5}
+        - {x: -66, y: -218.5}
+        - {x: -52, y: -239.5}
+        - {x: -44, y: -250.5}
+        - {x: -33, y: -252.5}
+        - {x: -17, y: -252.5}
+        - {x: -11, y: -251.5}
+        - {x: 2, y: -249.5}
+        - {x: 18, y: -252.5}
+        - {x: 49, y: -252.5}
+        - {x: 59, y: -245.5}
+        - {x: 72, y: -227.5}
+        - {x: 85, y: -206.5}
+    - name: Tooth_5
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 465
+        width: 11
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Tooth_6
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 268
+        width: 71
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7.5, y: 30.5}
+        - {x: -35.5, y: 30.5}
+        - {x: -35.5, y: -1.5}
+        - {x: -34.5, y: -6.5}
+        - {x: 7.5, y: -30.5}
+        - {x: 35.5, y: -30.5}
+        - {x: 35.5, y: -5.5}
+        - {x: 6.5, y: 27.5}
+    - name: Tooth_7
+      rect:
+        serializedVersion: 2
+        x: 1444
+        y: 285
+        width: 10
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Tooth_8
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 257
+        width: 23
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Tooth_9
+      rect:
+        serializedVersion: 2
+        x: 1912
+        y: 71
+        width: 8
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Tooth_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 6
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Tooth_11
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 0
+        width: 35
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
