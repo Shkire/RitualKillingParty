@@ -4,12 +4,16 @@ using System;
 
 public class BrilliantTeethController : MonoBehaviour {
 
+	private float timeToNextPhase = 3;
+
+	private float timeLeftToNextPhase = 3;
+	private bool completed;
+
 	[SerializeField]
 	private RitualController gameController;
 	[SerializeField]
 	private GuiController guiController;
 
-	private bool completed;
 
 	[SerializeField]
 	private bool picked  = false;
@@ -37,6 +41,7 @@ public class BrilliantTeethController : MonoBehaviour {
 
 	// Use this for initialization
 	void OnEnable () {
+		gameController.UnlockCounter ();	
 
 		rand = new System.Random (Guid.NewGuid ().GetHashCode ());
 
@@ -69,19 +74,19 @@ public class BrilliantTeethController : MonoBehaviour {
 
 		}*/
 
+		if (!completed) {
+			if (Input.GetMouseButtonDown (0)) {
 
-		if (Input.GetMouseButtonDown (0)) {
 
+				RaycastHit2D[] hit = new RaycastHit2D[1];
+				int num = Physics2D.GetRayIntersectionNonAlloc (Camera.main.ScreenPointToRay (Input.mousePosition), hit);
 
-			RaycastHit2D[] hit = new RaycastHit2D[1];
-			int num = Physics2D.GetRayIntersectionNonAlloc (Camera.main.ScreenPointToRay (Input.mousePosition), hit);
-
-			if (hit [0].collider.gameObject.tag.Equals ("Fine")) {
+				if (hit [0].collider.gameObject.tag.Equals ("Fine")) {
 				
-				picked = true;
+					picked = true;
 
+				}
 			}
-		}
 
 			if (Input.GetMouseButton (0) && picked) {
 
@@ -101,14 +106,19 @@ public class BrilliantTeethController : MonoBehaviour {
 
 
 
-		if (IsCompleted()) {
+			if (IsCompleted ()) {
 
-			Debug.Log ("a");
-			gameController.win = true;
-			gameController.LockCounter ();
-			guiController.WinBoard (true);
-			completed = true;
+				Debug.Log ("a");
+				gameController.win = true;
+				gameController.LockCounter ();
+				guiController.WinBoard (true);
+				completed = true;
 
+			}
+		} else {
+			timeLeftToNextPhase -= Time.fixedDeltaTime;
+			if (timeLeftToNextPhase <= 0)
+				gameController.RandomizeNextPhase (3);
 		}
 
 	}
@@ -126,6 +136,12 @@ public class BrilliantTeethController : MonoBehaviour {
 		return count==dientes2.Length;
 	}
 
+	public void ResetLevel(){
+
+
+		completed = false;
+		timeLeftToNextPhase = timeToNextPhase;
+	}
 
 
 

@@ -98,15 +98,17 @@ public class RitualController : MonoBehaviour
 		guiController.FailBoard (false);
 		guiController.TimeCounter (true);
 		voodooGame.GetComponentInChildren<VoodooGameController> ().ResetLevel ();
-		//brilliantTeeth.GetComponentInChildren<BrilliantTeethController> ().ResetLevel ();
+		brilliantTeeth.GetComponentInChildren<BrilliantTeethController> ().ResetLevel ();
 		int phaseSelected;
 
 		do {
-			phaseSelected = rnd.Next (1, 4);
+			phaseSelected = Mathf.FloorToInt((float)(rnd.NextDouble()*(3)+1));
+			Debug.Log (phaseSelected);
 		} while (phaseSelected == num);
-
+		Debug.Log ("activaoooo");
 		switch (phaseSelected) {
 		case 1:
+			
 			voodooGame.SetActive (true);
 			break;
 		case 2:
@@ -114,6 +116,7 @@ public class RitualController : MonoBehaviour
 			break;
 		case 3:
 			brilliantTeeth.SetActive (true);
+
 			break;
 		}
 
